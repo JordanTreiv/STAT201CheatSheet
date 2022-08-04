@@ -527,7 +527,9 @@ A Two Sample T-Test (Two Tail) is for comparing 2 independent populations, other
 
 If the population standard deviation is known and the sample size is greater than 30, Z-test is recommended to be used. If the population standard deviation is known, and the size of the sample is less than or equal to 30, T-test is recommended.
 
+**For a 2-Tailed T_Test:**
 
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/Screen%20Shot%202022-08-04%20at%201.14.30%20PM.png)
 
 
 
