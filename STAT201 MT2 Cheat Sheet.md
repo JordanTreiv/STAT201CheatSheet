@@ -369,9 +369,23 @@ pop_dist_normal <-
 
 This should look something like:
 
-![alt text]()
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/download.png)
 
 
+**Characteristics of a Normal Curve/Distribution:**
+
+The Normal Curve is described by N(μ,σ) such that:
+
+μ (Mu): Describes the center/mean of the curve. Controls the location of the curve.
+
+σ (Sigma): Describes the standard devaition/spread of the curve. Controls its spread. As σ increases, the curve becomes wider, and vice versa
+
+------------------------------------------------------------------------------------
+- Approximately 68% of the observations are between [μ - 1σ ; μ + 1σ]
+- Approximately 95% of the observations are between [μ - 2σ ; μ + 2σ]
+- Approximately 99.7% of the observations are between [μ - 3σ ; μ + 3σ]
+
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/download(1).png)
 
 
 
