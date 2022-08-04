@@ -488,7 +488,10 @@ mean_body_mass_adelie_ci <-
 # standard error is acquired by: sqrt(phat * (1 - phat) / length(DATAFRAME)
 # phat is acquired by: phat <- mean(VARIABLE > 4000) [for a greater than prop test]
 ```
+-----------------------------------------------------------------------------
+**Doing Confidence Intervals for  Differences in Summary Stats with CLT**
 
+![alt text]()
 
 
 
