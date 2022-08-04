@@ -254,6 +254,10 @@ visualize(null_model_dist, bins = 10)%>%
 shade_p_value(obs_stat = obs_test_stat, direction = "ENTER_TYPE_HERE")
 ```
 
+It should look something like this (for direction = "right"):
+
+![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+
 ## Module 7: Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem
 
 
