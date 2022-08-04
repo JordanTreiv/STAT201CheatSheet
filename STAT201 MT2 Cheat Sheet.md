@@ -511,4 +511,28 @@ Code for difference in stats Confidence interval based on CLT:
 
 
 
-## Module 8: Theory-based Hypothesis Tests
+## Module 8: Classical Tests Based on Normal and t-Distributions
+
+**General Ideas:**
+
+- Describe the t-distribution family and its relationship with the normal distribution.
+- Use results from the assumption of normality or the Central Limit Theorem to perform estimation and hypothesis testing.
+- Compare and contrast the parts of estimation and hypothesis testing that differ between simulation- and resampling-based approaches with the assumption of normality or the Central Limit Theorem- based approaches.
+- Write a computer script to perform hypothesis testing based on results from the assumption of normality or the Central Limit Theorem.
+- Discuss the potential limitations of these methods.
+
+
+A Two Sample T-Test (Two Tail) is for comparing 2 independent populations, otherwise, a t test is used for when the population paramaeters are unknown and the standard deviation is approximated by using a value from a sample:
+
+
+If the population standard deviation is known and the sample size is greater than 30, Z-test is recommended to be used. If the population standard deviation is known, and the size of the sample is less than or equal to 30, T-test is recommended.
+
+
+
+
+
+
+
+
+
+
