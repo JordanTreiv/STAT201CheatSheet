@@ -55,8 +55,85 @@ x = Response
 
 y = Explanatory
 
+**The Code:**
 
 
+
+*(The following is for a categorical variable)*
+
+First we *specify* response and/or explanatory variables:
+
+```r
+specify(formula = Response ~ Explanatory, success = someCategoricalFactor)
+```
+Next, we create the null and alternative *hypotheses*:
+
+Note, for ``hypothesize:"" `` we enter:
+
+"independence" for when there are 2 samples
+
+"point" for wheb there is 1 sample.
+
+```r
+specify(formula = Response ~ Explanatory, success = someCategoricalFactor)%>%
+hypothesize(null = "ENTER_TYPE_HERE")
+```
+
+Next, we *generate* replicates:
+
+Note, for ``generate:"" `` we enter:
+
+"bootstrap" for when we replicate ***WITH*** replacement
+
+"permute" for when we replicate ***WITHOUT*** replacement
+
+```r 
+specify(formula = Response ~ Explanatory, success = someCategoricalFactor)%>%
+hypothesize(null = "ENTER_TYPE_HERE")%>%
+generate(reps = DESIRED_REPLICATES, type = "ENTER_TYPE_HER")
+
+```
+
+
+
+
+
+
+
+
+*(The following is for a continuous variable)*
+
+First we *specify* response and/or explanatory variables:
+
+```r
+specify(response = Response)
+```
+Next, we create the null and alternative *hypotheses*:
+
+Note, for ``hypothesize:"" `` we enter:
+
+"independence" for when there are 2 samples
+
+"point" for when there is 1 sample.
+
+```r
+specify(response = Response) %>% 
+hypothesize(null = "ENTER_TYPE_HERE")
+```
+
+Next, we *generate* replicates:
+
+Note, for ``generate:"" `` we enter:
+
+"bootstrap" for when we replicate ***WITH*** replacement
+
+"permute" for when we replicate ***WITHOUT*** replacement
+
+```r
+specify(response = Response)%>%
+hypothesize(null = "ENTER_TYPE_HERE")%>%
+generate(reps = DESIRED_REPLICATES, type = "ENTER_TYPE_HER")
+```
 
 
 ## Module 7: Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem
