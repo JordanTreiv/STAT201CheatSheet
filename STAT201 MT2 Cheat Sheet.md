@@ -57,13 +57,21 @@ y = Explanatory
 
 **The Code:**
 
+First, we find the *observed test statistic* from the original sample
 
+```r
+obs_test_stat <- data %>% 
+  specify(Response ~ Explanatory, success = someCategoricalFactor %>% 
+  calculate(stat = "ENTER_TYPE_HERE")
+obs_test_stat
+```
 
 *(The following is for a categorical variable)*
 
-First we *specify* response and/or explanatory variables:
+We start the null model by using *specify* to identify response and/or explanatory variables:
 
 ```r
+null_model_dist <- data %>%
 specify(formula = Response ~ Explanatory, success = someCategoricalFactor)
 ```
 Next, we create the null and alternative *hypotheses*:
@@ -75,6 +83,7 @@ Note, for ``hypothesize:"" `` we enter:
 "point" for wheb there is 1 sample.
 
 ```r
+null_model_dist <- data %>%
 specify(formula = Response ~ Explanatory, success = someCategoricalFactor)%>%
 hypothesize(null = "ENTER_TYPE_HERE")
 ```
@@ -88,6 +97,7 @@ Note, for ``generate:"" `` we enter:
 "permute" for when we replicate ***WITHOUT*** replacement
 
 ```r 
+null_model_dist <- data %>%
 specify(formula = Response ~ Explanatory, success = someCategoricalFactor)%>%
 hypothesize(null = "ENTER_TYPE_HERE")%>%
 generate(reps = DESIRED_REPLICATES, type = "ENTER_TYPE_HER")
@@ -108,14 +118,15 @@ Note, for ``calculate(stat= "") `` we enter:
 
 "count" - for calculating the total counts
 
-"diff in means" - for calculating the difference in means **(ONLY FOR ``hypothesize(null = independence))`` )**
+"diff in means" - for calculating the difference in means **(ONLY FOR ``hypothesize(null = "independence"))`` )**
 
-"diff in medians" - for calculating the difference in medians **(ONLY FOR ``hypothesize(null = independence))`` )**
+"diff in medians" - for calculating the difference in medians **(ONLY FOR ``hypothesize(null = "independence))`` )**
 
-"diff in props" - for calculating the difference in proportions **(ONLY FOR ``hypothesize(null = independence))`` )** 
+"diff in props" - for calculating the difference in proportions **(ONLY FOR ``hypothesize(null = "independence))`` )** 
 
 
 ```r
+null_model_dist <- data %>%
 specify(formula = Response ~ Explanatory, success = someCategoricalFactor)%>%
 hypothesize(null = "ENTER_TYPE_HERE")%>%
 generate(reps = DESIRED_REPLICATES, type = "ENTER_TYPE_HER")%>%
@@ -124,7 +135,28 @@ calculate(stat = "ENTER_TYPE_HERE")
 # calculate(stat = "diff in props", order = c("var1", "var2"))
 ```
 
+To *visualize* the p-value, we do:
 
+```r
+null_model_dist_vis <- 
+visualize(null_model_dist, bins = 10)
+```
+
+We can further shade in the region with the p-value depending on our Alternative Hypothesis:
+
+Note, for ``shade_p_value(obs_stat = obs_test_stat, direction = "")``, for direction, we enter:
+
+"right" - 𝐻𝐴 > ***p*** 
+
+"left" - 𝐻𝐴 < ***p*** 
+
+"both" - for when 𝐻𝐴 ≠ ***p***
+
+```r
+null_model_dist_vis <- 
+visualize(null_model_dist, bins = 10)%>%
+shade_p_value(obs_stat = obs_test_stat, direction = "ENTER_TYPE_HERE")
+```
 
 
 
@@ -132,9 +164,10 @@ calculate(stat = "ENTER_TYPE_HERE")
 
 *(The following is for a continuous variable)*
 
-First we *specify* response and/or explanatory variables:
+We start the null model by using *specify* to identify response and/or explanatory variables:
 
 ```r
+null_model_dist <- data %>%
 specify(response = Response)
 ```
 Next, we create the null and alternative *hypotheses*:
@@ -146,6 +179,7 @@ Note, for ``hypothesize:"" `` we enter:
 "point" for when there is 1 sample.
 
 ```r
+null_model_dist <- data %>%
 specify(response = Response) %>% 
 hypothesize(null = "ENTER_TYPE_HERE")
 ```
@@ -159,6 +193,7 @@ Note, for ``generate:"" `` we enter:
 "permute" for when we replicate ***WITHOUT*** replacement
 
 ```r
+null_model_dist <- data %>%
 specify(response = Response)%>%
 hypothesize(null = "ENTER_TYPE_HERE")%>%
 generate(reps = DESIRED_REPLICATES, type = "ENTER_TYPE_HER")
@@ -180,13 +215,14 @@ Note, for ``calculate(stat= "") `` we enter:
 
 "count" - for calculating the total counts
 
-"diff in means" - for calculating the difference in means **(ONLY FOR ``hypothesize(null = independence))`` )**
+"diff in means" - for calculating the difference in means **(ONLY FOR ``hypothesize(null = "independence))`` )**
 
-"diff in medians" - for calculating the difference in medians **(ONLY FOR ``hypothesize(null = independence))`` )**
+"diff in medians" - for calculating the difference in medians **(ONLY FOR ``hypothesize(null = "independence))`` )**
 
-"diff in props" - for calculating the difference in proportions **(ONLY FOR ``hypothesize(null = independence))`` )** 
+"diff in props" - for calculating the difference in proportions **(ONLY FOR ``hypothesize(null = "independence))`` )** 
 
 ```r
+null_model_dist <- data %>%
 specify(response = Response)%>%
 hypothesize(null = "ENTER_TYPE_HERE")%>%
 generate(reps = DESIRED_REPLICATES, type = "ENTER_TYPE_HER")%>%
@@ -195,6 +231,28 @@ calculate(stat = "ENTER_TYPE_HERE")
 # calculate(stat = "diff in props", order = c("var1", "var2"))
 ```
 
+To *visualize* the p-value, we do:
+
+```r
+null_model_dist_vis <- 
+visualize(null_model_dist, bins = 10)
+```
+
+We can further shade in the region with the p-value depending on our Alternative Hypothesis:
+
+Note, for ``shade_p_value(obs_stat = obs_test_stat, direction = "")``, for direction, we enter:
+
+"right" - 𝐻𝐴 > ***p*** 
+
+"left" - 𝐻𝐴 < ***p*** 
+
+"both" - for when 𝐻𝐴 ≠ ***p***
+
+```r
+null_model_dist_vis <- 
+visualize(null_model_dist, bins = 10)%>%
+shade_p_value(obs_stat = obs_test_stat, direction = "ENTER_TYPE_HERE")
+```
 
 ## Module 7: Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem
 
