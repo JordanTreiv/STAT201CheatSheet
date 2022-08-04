@@ -157,7 +157,18 @@ null_model_dist_vis <-
 visualize(null_model_dist, bins = 10)%>%
 shade_p_value(obs_stat = obs_test_stat, direction = "ENTER_TYPE_HERE")
 ```
+It should look something like this (for direction = "right"):
 
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/null-distribution-infer-2-1.png)
+
+Finally, we need to get our p-value, which we will compare with our significance level, and then determine wether or not to reject the null
+
+```r
+get_p_value(obs_stat = obs_test_stat, direction = "ENTER_TYPE_HERE")
+```
+
+Remember, this will spit out a *percentage* which represents the probability of getting a value *more extreme* than the test statistic.
+If the p-value is smaller than the ⍺ level(significance level), we *reject the null*. Otherwise, we do not.
 
 
 
@@ -257,6 +268,17 @@ shade_p_value(obs_stat = obs_test_stat, direction = "ENTER_TYPE_HERE")
 It should look something like this (for direction = "right"):
 
 ![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/null-distribution-infer-2-1.png)
+
+Finally, we need to get our p-value, which we will compare with our significance level, and then determine wether or not to reject the null
+
+```r
+get_p_value(obs_stat = obs_test_stat, direction = "ENTER_TYPE_HERE")
+```
+
+Remember, this will spit out a *percentage* which represents the probability of getting a value *more extreme* than the test statistic.
+If the p-value is smaller than the ⍺ level(significance level), we *reject the null*. Otherwise, we do not.
+
+
 
 ## Module 7: Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem
 
