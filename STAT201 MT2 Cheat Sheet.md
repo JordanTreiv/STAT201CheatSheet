@@ -195,6 +195,15 @@ visualize(bootstrap_distribution) +
   shade_confidence_interval(endpoints = percentile_ci)
 ```
 
+It should look like:
+
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/bootstrap-distribution-two-prop-percentile-1.png)
+
+
+
+--------------------------------------------------------------------------------------------
+
+
 
 *(The following is for a continuous variable)*
 
@@ -326,6 +335,10 @@ ci_vis <-
 visualize(bootstrap_distribution) + 
   shade_confidence_interval(endpoints = percentile_ci)
 ```
+
+It should look like:
+
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/bootstrap-distribution-two-prop-percentile-1.png)
 
 
 ## Module 7: Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem
