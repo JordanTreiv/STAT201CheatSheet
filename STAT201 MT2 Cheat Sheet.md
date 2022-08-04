@@ -91,9 +91,38 @@ Note, for ``generate:"" `` we enter:
 specify(formula = Response ~ Explanatory, success = someCategoricalFactor)%>%
 hypothesize(null = "ENTER_TYPE_HERE")%>%
 generate(reps = DESIRED_REPLICATES, type = "ENTER_TYPE_HER")
-
 ```
+After this, we *calculate* summary statistics:
 
+Note, for ``calculate(stat= "") `` we enter:
+
+"mean" - for calculating the means
+
+"median" - for calculating the medians
+
+"sum" - for calculating the summs
+
+"sd" - for calculating the standard deviations
+
+"prop" - for calculating the proportions
+
+"count" - for calculating the total counts
+
+"diff in means" - for calculating the difference in means **(ONLY FOR ``hypothesize(null = independence))`` )**
+
+"diff in medians" - for calculating the difference in medians **(ONLY FOR ``hypothesize(null = independence))`` )**
+
+"diff in props" - for calculating the difference in proportions **(ONLY FOR ``hypothesize(null = independence))`` )** 
+
+
+```r
+specify(formula = Response ~ Explanatory, success = someCategoricalFactor)%>%
+hypothesize(null = "ENTER_TYPE_HERE")%>%
+generate(reps = DESIRED_REPLICATES, type = "ENTER_TYPE_HER")%>%
+calculate(stat = "ENTER_TYPE_HERE")
+# for calculate(stat = "diff in SMTH"), you can add the order of taking the difference like:
+# calculate(stat = "diff in props", order = c("var1", "var2"))
+```
 
 
 
@@ -133,6 +162,37 @@ Note, for ``generate:"" `` we enter:
 specify(response = Response)%>%
 hypothesize(null = "ENTER_TYPE_HERE")%>%
 generate(reps = DESIRED_REPLICATES, type = "ENTER_TYPE_HER")
+```
+
+After this, we *calculate* summary statistics:
+
+Note, for ``calculate(stat= "") `` we enter:
+
+"mean" - for calculating the means
+
+"median" - for calculating the medians
+
+"sum" - for calculating the summs
+
+"sd" - for calculating the standard deviations
+
+"prop" - for calculating the proportions
+
+"count" - for calculating the total counts
+
+"diff in means" - for calculating the difference in means **(ONLY FOR ``hypothesize(null = independence))`` )**
+
+"diff in medians" - for calculating the difference in medians **(ONLY FOR ``hypothesize(null = independence))`` )**
+
+"diff in props" - for calculating the difference in proportions **(ONLY FOR ``hypothesize(null = independence))`` )** 
+
+```r
+specify(response = Response)%>%
+hypothesize(null = "ENTER_TYPE_HERE")%>%
+generate(reps = DESIRED_REPLICATES, type = "ENTER_TYPE_HER")%>%
+calculate(stat = "ENTER_TYPE_HERE")
+# for calculate(stat = "diff in SMTH"), you can add the order of taking the difference like:
+# calculate(stat = "diff in props", order = c("var1", "var2"))
 ```
 
 
