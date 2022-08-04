@@ -28,6 +28,36 @@ And the alternative is of the form:
 
 𝐻𝐴 ≠ ***p*** ; for some p Population Parameter
 
+### Code(Module 6)
+
+**STEP 1:**
+
+Identify Hypotheses:
+
+𝐻0 = x
+
+-------------------------------------------------------------
+
+𝐻𝐴 < x
+
+*or*
+
+𝐻𝐴 > x
+
+*or*
+
+𝐻𝐴 ≠ x
+
+
+Identify Response and Explanatory variables:
+
+x = Response
+
+y = Explanatory
+
+
+
+
 
 ## Module 7: Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem
 
