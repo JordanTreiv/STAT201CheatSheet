@@ -385,6 +385,11 @@ The Normal Curve is described by N(μ,σ) such that:
 - Approximately 95% of the observations are between [μ - 2σ ; μ + 2σ]
 - Approximately 99.7% of the observations are between [μ - 3σ ; μ + 3σ]
 
+Z* for:
+- 1xσ: 1
+- 2xσ: 1.96
+- 3xσ: 2.58
+
 ![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/download%20(1).png)
 
 
@@ -491,7 +496,17 @@ mean_body_mass_adelie_ci <-
 -----------------------------------------------------------------------------
 **Doing Confidence Intervals for  Differences in Summary Stats with CLT**
 
-![alt text]()
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/Screen%20Shot%202022-08-04%20at%2012.46.48%20PM.png)
+
+Code for difference in stats Confidence interval based on CLT:
+
+```r
+ diff_means_ci <- 
+     tibble(
+         lower_ci = mean(data1) - mean(data2) + qnorm(0.025, 0, 1) * sqrt(var(data1)/length(data1) + var(data2)/length(data2)),
+         upper_ci = mean(data1) - mean(data2) - qnorm(0.025, 0, 1) * sqrt(var(data1)/length(data1) + var(data2)/length(data2))
+     )
+```
 
 
 
