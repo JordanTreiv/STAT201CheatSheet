@@ -385,9 +385,109 @@ The Normal Curve is described by N(μ,σ) such that:
 - Approximately 95% of the observations are between [μ - 2σ ; μ + 2σ]
 - Approximately 99.7% of the observations are between [μ - 3σ ; μ + 3σ]
 
-![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/download_(1).png)
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/download%20(1).png)
 
 
+The above works very well for Normal Distributions, however, when the distribution of the population/sample is not normal, we need to consider the
+Central Limit Theorum
+
+### Central Limit Theorum (CLT)
+
+**The Main Idea:**
+Allows us to approximate the sampling distribution of many estimators by a Normal distribution, even when the population distribution is not Normal
+
+This works by given a sufficiently large sample size, the sampling distribution of the mean for a variable will approximate a normal distribution 
+regardless of that variable’s distribution in the population.
+
+**The Code to do it:**
+
+```r
+samples_size10 <- weird_population %>%
+    rep_sample_n(reps = 3000, size = 10)
+```
+
+```r
+sampling_dist_size500 <-
+    samples_size500 %>% 
+    group_by(replicate) %>% 
+    summarise(sample_mean = mean(value), `.groups` = "drop") %>% 
+    ggplot() + 
+    geom_histogram(aes(x = sample_mean, y = ..density..), color="white") +
+    theme(text = element_text(size = 25))+
+    xlab("Sample Means") +
+    ggtitle("Sampling distribution of the sample mean for samples of size 500 from Weird Population.") + 
+    geom_line(data = gaussian_densities %>% filter(sample_size == 500), aes(value, density), color = "red", lwd = 2) # Adds the red normal dist line
+```
+
+It is important to notice that CLT is not magic -- you should not automatically rely on CLT. There are three main things you need to check:
+
+- Is the size of your sample large enough?
+- Was the sample taken in an independent fashion?
+- Is the estimator being used a sum of random components?
+
+#### Confidence Intervals from CLT
+
+**Steps:**
+1. Take a sample; 
+2. Construct the bootstrap sampling distribution.
+3.Get the quantiles from the estimated sampling distribution.
+
+**The Following is for a Continuous variable:**
+
+To estimate the mean, we use the sample average, X. The CLT roughly says that X follows a Normal distribution with parameters μ and σ√n:
+
+X ~ N(μ,σ√n)
+
+Since we do not know the population μ and σ, we use their estimates: x, and s. You can acquire s with ``sd(variable)``.
+
+**Confidence Intervals like: **
+
+By ``qnorm()``:
+
+```r
+mean_body_mass_adelie_ci <-
+    tibble(
+         lower_ci = qnorm(0.025, mean, std_error),
+         upper_ci = qnorm(0.975, mean, std_error)
+     )
+# standard error is acquired by: sd(variable) / sqrt(n)
+# where n = sample size
+```
+
+
+By ``infer``: 
+
+```r
+bootstrap_ci <- 
+    data %>% 
+    filter(WTVR_IS_RELEVENT) %>% 
+    specify(response = RESPONSE_VARIABLE) %>% 
+    generate(type = "bootstrap", reps = WTVR_NUMBER) %>% 
+    calculate(stat = ENTER_TYPE_HERE) %>% 
+    get_ci()
+bootstrap_ci
+```
+
+----------------------------------------------------------------------------
+
+**The Following is for a Discrete variable:**
+
+A proportion is the average of a random variable that can only assume either 0 or 1. Therefore, by calculating proportions, you are summing up random terms, and we can apply the CLT. The CLT for proportions states that the sample proportion follows a Normal distribution with mean equals to 
+p,the population proportion, and standard deviation √p(1−p)/n:
+
+p̂ ~ N(p,√(p(1-p)/n))
+
+Given by:
+
+```r
+mean_body_mass_adelie_ci <-
+    tibble(
+         lower_ci = qnorm(0.025, phat, std_error),
+         upper_ci = qnorm(0.975, phat, std_error)
+     )
+# standard error is acquired by: sqrt(phat * (1 - phat) / length(DATAFRAME)
+# phat is acquired by: phat <- mean(VARIABLE > 4000) [for a greater than prop test]
+```
 
 
 
