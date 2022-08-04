@@ -170,7 +170,30 @@ get_p_value(obs_stat = obs_test_stat, direction = "ENTER_TYPE_HERE")
 Remember, this will spit out a *percentage* which represents the probability of getting a value *more extreme* than the test statistic.
 If the p-value is smaller than the ⍺ level(significance level), we *reject the null*. Otherwise, we do not.
 
+From here, if we so wish, we can easily continue to making confidence intervals with a few easy changes:
 
+```r
+bootstrap_distribution <- data %>% 
+specify(formula = Response ~ Explanatory, success = someCategoricalFactor)%>% 
+# Change 1 - Remove hypothesize():
+# hypothesize(null = "ENTER_TYPE_HERE") %>% 
+# Change 2 - make the generate type = "bootstrap":
+generate(reps = 1000, type = "bootstrap") %>% 
+calculate(stat = "ENTER_TYPE_HERE")%>%
+```
+
+```r
+percentile_ci <- bootstrap_distribution %>% 
+  get_confidence_interval(level = ENTER_CONFIDENCE_LEVEL_HERE, type = "percentile")
+```
+
+Next, we visualize the confidence interval:
+
+```r
+ci_vis <-
+visualize(bootstrap_distribution) + 
+  shade_confidence_interval(endpoints = percentile_ci)
+```
 
 
 *(The following is for a continuous variable)*
@@ -278,6 +301,31 @@ get_p_value(obs_stat = obs_test_stat, direction = "ENTER_TYPE_HERE")
 Remember, this will spit out a *percentage* which represents the probability of getting a value *more extreme* than the test statistic.
 If the p-value is smaller than the ⍺ level(significance level), we *reject the null*. Otherwise, we do not.
 
+
+From here, if we so wish, we can easily continue to making confidence intervals with a few easy changes:
+
+```r
+bootstrap_distribution <- data %>% 
+specify(response = Response)%>% 
+# Change 1 - Remove hypothesize():
+# hypothesize(null = "ENTER_TYPE_HERE") %>% 
+# Change 2 - make the generate type = "bootstrap":
+generate(reps = 1000, type = "bootstrap") %>% 
+calculate(stat = "ENTER_TYPE_HERE")%>%
+```
+
+```r
+percentile_ci <- bootstrap_distribution %>% 
+  get_confidence_interval(level = ENTER_CONFIDENCE_LEVEL_HERE, type = "percentile")
+```
+
+Next, we visualize the confidence interval:
+
+```r
+ci_vis <-
+visualize(bootstrap_distribution) + 
+  shade_confidence_interval(endpoints = percentile_ci)
+```
 
 
 ## Module 7: Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem
