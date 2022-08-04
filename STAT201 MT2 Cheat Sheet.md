@@ -385,7 +385,7 @@ The Normal Curve is described by N(μ,σ) such that:
 - Approximately 95% of the observations are between [μ - 2σ ; μ + 2σ]
 - Approximately 99.7% of the observations are between [μ - 3σ ; μ + 3σ]
 
-![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/download(1).png)
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/download_(1).png)
 
 
 
