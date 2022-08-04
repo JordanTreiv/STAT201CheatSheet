@@ -343,5 +343,40 @@ It should look like:
 
 ## Module 7: Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem
 
+**The General Idea**
+- Describe the Law of Large Numbers.
+- Describe a normal distribution.
+- Explain the Central Limit Theorem and other general asymptotic results (such as for quantiles), and their role in constructing confidence intervals.
+- Write a computer script to calculate confidence intervals based on the assumption of normality or the Central Limit Theorem.
+- Discuss the potential limitations of these methods.
+- Decide whether to use asymptotic theory or bootstrapping to compute estimator uncertainty.
+
+### Normal(Gaussian) distribution
+
+**Fitting a normal curve on a normal distribution:**
+
+```r
+pop_dist_normal <- 
+    data %>% 
+    ggplot() + 
+    geom_histogram(aes(x = RESPONSEVAR , y = ..density..), color = 'white', binwidth = 0.198)+
+    theme(text = element_text(size=25)) +
+    xlab("XLABEL") +
+    ylab("Count") + 
+    ggtitle("DISTRIBUTION_TITLE")+
+    geom_line(data = data_normal, aes(x = RESPONSEVAR, y = density), color="red", lwd = 2)
+```
+
+This should look something like:
+
+![alt text]()
+
+
+
+
+
+
+
+
 
 ## Module 8: Theory-based Hypothesis Tests
