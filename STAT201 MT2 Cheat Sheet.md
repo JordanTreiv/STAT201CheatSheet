@@ -71,6 +71,26 @@ visualize(bootstrap_distribution)
 ```
 Note, the above works only in the ``infer`` package.
 
+to construct the confidence interval we have a few options:
+
+#### Confidence Interval using the ``percentile`` methd using the ``infer`` package
+
+```r
+percentile_ci <- bootstrap_distribution %>% 
+  get_confidence_interval(level = CONF_LEVEL_OUT_OF_ONE, type = "percentile")
+```
+This will yield a tivvle with 2 values in labeled lower_ci and upper_ci.
+
+We then very easily create a visualization again:
+
+```r
+visualize(bootstrap_distribution) + 
+  shade_confidence_interval(endpoints = percentile_ci)
+```
+Which will yield something like this: 
+
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/XXXX)
+
 
 ## Module 6: Hypothesis Testing
 ***The Basic Steps***
