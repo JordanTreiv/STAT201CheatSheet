@@ -1,5 +1,75 @@
 # STAT201 MT2 Cheat Sheet
 
+
+## Module 1: 
+
+## Module 2: 
+
+## Module 3: 
+
+## Module 4: Confidence Intervals via Bootstrapping
+
+***The Main Idea***
+-Define what a confidence interval is and why we want to generate one.
+
+-Explain how the bootstrap sampling distribution can be used to create confidence intervals.
+
+-Write a computer script to calculate confidence intervals for a population parameter using bootstrapping.
+
+-Effectively visualize point estimates and confidence intervals.
+
+-Interpret and explain results from confidence intervals.
+
+-Discuss the potential limitations of these methods.
+
+**There are two main workflows for acquiring a confidence interval using bootstrappoing: **
+1. Using re_sample_n...
+2. Using the ``infer`` package 
+
+### Original Workflow
+
+First off, we need to clean and isolate the relevent variables, after which we create a bootstrap sample:
+
+```r
+bootstrap_dist <- original_sample %>%
+rep_sample_n(reps = DESIRED_REPS, size = SIZE_PER_SAMPLE, replace = TRUE)
+```
+Note that the key here is making ``replace = TRUE``, this makes the above a bootstrap by definition.
+
+Next, we need to calculate for our sample statistic of choice:
+
+```r
+bootstrap_dist <- original_sample %>%
+rep_sample_n(reps = DESIRED_REPS, size = SIZE_PER_SAMPLE, replace = TRUE)%>%
+  group_by(replicate)%>%
+  summarize(sample_stat = some_operation(some_var))
+```
+The above is how to get the bootstrap distribution. We will now consider how to do the same using the ``infer`` workflow
+
+### ``Infer`` Workflow
+
+First, we need to specify our variables for the workflow:
+
+```r
+original_sample %>%
+  specify(formula = RESPONSE ~ EDPLANATORY)
+```
+Then, we need to generate replicates and calculate our sample statistic:
+
+```r
+bootstrap_dist <- original_sample %>%
+  specify(formula = RESPONSE ~ EDPLANATORY)%>%
+  generate(reps = DESIRED_REPS) %>% 
+  calculate(stat = "type_of_statstic")
+```
+The above has brought us to the same point as in the original workflow. Now, we very easily visualize using the ``infer`` package:
+
+```r
+visualize(bootstrap_distribution)
+```
+Note, the above works only in the ``infer`` package.
+
+
 ## Module 6: Hypothesis Testing
 ***The Basic Steps***
 - State hypotheses
