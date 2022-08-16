@@ -89,7 +89,7 @@ visualize(bootstrap_distribution) +
 ```
 Which will yield something like this: 
 
-![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/XXXX)
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/Screen%20Shot%202022-08-16%20at%204.46.53%20PM.png)
 
 
 ## Module 6: Hypothesis Testing
