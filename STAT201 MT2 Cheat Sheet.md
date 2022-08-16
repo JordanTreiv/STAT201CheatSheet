@@ -10,6 +10,7 @@
 ## Module 4: Confidence Intervals via Bootstrapping
 
 ***The Main Idea***
+
 -Define what a confidence interval is and why we want to generate one.
 
 -Explain how the bootstrap sampling distribution can be used to create confidence intervals.
@@ -22,7 +23,8 @@
 
 -Discuss the potential limitations of these methods.
 
-**There are two main workflows for acquiring a confidence interval using bootstrappoing: **
+**There are two main workflows for acquiring a confidence interval using bootstrapping:**
+
 1. Using re_sample_n...
 2. Using the ``infer`` package 
 
