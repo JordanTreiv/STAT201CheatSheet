@@ -92,6 +92,10 @@ Which will yield something like this:
 ![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/Screen%20Shot%202022-08-16%20at%204.46.53%20PM.png)
 
 
+The other method for creating a confidence interval is using the 68-95-99.7 rule for normal distributions, but that one assumes normality so if you needed it, damn go read the textbook X_X.
+
+
+
 ## Module 6: Hypothesis Testing
 ***The Basic Steps***
 - State hypotheses
@@ -121,7 +125,6 @@ And the alternative is of the form:
 𝐻𝐴 ≠ ***p*** ; for some p Population Parameter
 
 ### Code(Module 6)
-
 **STEP 1:**
 
 Identify Hypotheses:
@@ -140,6 +143,7 @@ Identify Hypotheses:
 
 𝐻𝐴 ≠ x
 
+**STEP 2:**
 
 Identify Response and Explanatory variables:
 
@@ -147,7 +151,7 @@ x = Response
 
 y = Explanatory
 
-**The Code:**
+**STEP 3 (the code):**
 
 First, we find the *observed test statistic* from the original sample
 
