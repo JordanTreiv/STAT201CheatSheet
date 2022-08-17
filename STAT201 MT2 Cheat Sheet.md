@@ -676,7 +676,30 @@ The paired t-test compares two population means like the two-sample t-test, but 
 - if the distribution of d is normal, we should be fine for one-sample t-test even for small saple sizes. 
 - if the distribution of  d  is far from Normal, then a larger sample size is needed before the CLT "kicks in" and the one-sample t-test becomes appropriate. Usually, a sample of size 30 tends to be sufficient
 
+## Module 10: Errors in Inference 
 
+**General Ideas:**
+- Define type I & II errors.
+- Describe responsible use and reporting of p-values from hypothesis tests.
+- Discuss how these errors are linked to a "reproducibility crisis".
+- Measure how these errors amplify when performing multiple hypothesis testing, in the context of multiple comparisons.
+
+**Type I Errors**
+The probability of rejecting H<sub>0</sub> when H<sub>0</sub> is true. This probability is the significance level, represented by the α. 
+
+**Type II Errors**
+The probability of failing to reject H<sub>0</sub> when H<sub>0</sub> is false. This probability is the dependent on:
+- Effect size (difference between H<sub>0</sub> and reality) (probability of correctly rejecting H<sub>0</sub> increase as difference increases)
+- the sample size (increasing sample size reduces overlap between Null Model and Sampling Distribution if H<sub>0</sub> is false)
+- the probability of Type I error (changing α would change the borders of shaded regions in the Null Model and Sampling Distribution)
+
+**Power of the test**
+The power of a test is the probability of rejecting H<sub>0</sub> when H<sub>0</sub> is false. It is 1 - P(Type II Error)
+
+Confidence intervels can also be calculated X± z<sup>∗</sup><sub>1−α/2σ</sub>√n but the population SD is rarely known. Thus, the confidence intervas can also
+be calculated using the sampling distribution SD (s) instead:
+X±t<sup>∗</sup><sub>n−1,1−α/2<sub>s/√n 
+  where t<sup>*</sup> is the critical value with n-1 degrees of freedom for (1−α/2)-quantile (two-tailed)
 
 
 
