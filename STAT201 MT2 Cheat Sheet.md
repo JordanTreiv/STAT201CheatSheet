@@ -730,4 +730,59 @@ m <- pnorm(reject, 0, 1) ##can also be pnorm(val0.05, 260,  35/sqrt(n))
                          power_of_test = m)
 ```
 
+## Module 11: Beyond two-group comparisons
 
+**General Ideas:**
+- Learn about one-way ANOVA
+- Apply FDR or Bonferroni correction to control the errors when performing multiple hypothesis tests
+- Calculate and interpret prediction intervels 
+
+The ANOVA test uses the ratio between treatment variance (variance of group means around overall mean) and within-group variance to produce the  
+ANOVA F-statistic, which is well-approximated to the F-distribution if the hypothesis is true.
+
+```r
+anova_results <- 
+    aov(response/numeric_col_name ~ explanatory/group_col_name, data = data_tidy) %>% 
+    tidy()
+
+f_stat <- anova_results$statistic[1]
+
+anova_pval <- anova_results$p.value[1]
+```
+
+Prediction intervels intervels help us make inferences about new observations and use population or sample distributions instead of sampling distributions. 
+
+Example: A 90% prediction interval for a single row sample distribution
+```r
+dwelling_pi <- 
+    project_values %>% 
+    pull(project_value) %>% 
+    quantile(c(0.05, 0.95)) %>% 
+    unname()
+```
+
+As sample size increases, confidence intervals get narrower and prediction intervels remain roughly the same width. 
+The percentage of the population which falls into the created prediction interval is called the true coverage probability. 
+
+
+The Bonferroni correction is seen as an aggressive p-value adjustment method. So, it typically won't be able to detect subtle effect sizes. It limits the probability of seeing at least one false positive (Type I error) to the specified significance level  α .
+
+The idea is, if there are  k  hypotheses being tested, to either (1) adjust your chosen significance level  α  to  α/k , or equivalently, (2) multiply your p-values by  k .
+
+Example: Bonferroni adjustment
+```r
+pval_bonf <- p.adjust(gwas$p_value, method = "bonferroni")
+count_bonf <- sum(pval_bonf < 0.05)
+```
+
+The BH method is a more forgiving method in comparison to the Bonferroni method, and so may be more realistic. Instead of assigning a probability for seeing any Type I error at all, the BH method limits the false discovery rate = the proportion of "discoveries" (rejections of the null) that are false.
+
+The idea is that, given that p-values are completely random numbers between 0 and 1 if the null hypothesis is true, the collection of p-values are compared against what a random sample between 0 and 1 would look like. The p-values that deviate from this pattern are flagged as being significant.
+
+Example: BH adjustment
+```r
+pval_bh <- p.adjust(gwas$p_value, method = "BH")
+count_bh <- sum(pval_bh < 0.05)
+```
+
+Result: count_bh > count_bonferroni
