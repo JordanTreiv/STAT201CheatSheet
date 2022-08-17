@@ -695,6 +695,7 @@ The probability of failing to reject H<sub>0</sub> when H<sub>0</sub> is false. 
   probability of Type II error is inversely proportional to α value (increase α to decrease likelihood)
 
 **Power of the test**
+
 The power of a test is the probability of rejecting H<sub>0</sub> when H<sub>0</sub> is false. It is 1 - P(Type II Error)
 
 Confidence intervels can also be calculated X± z<sup>∗</sup><sub>1−α/2</sub>σ√n but the population SD is rarely known. Thus, the confidence intervas can also
@@ -704,6 +705,7 @@ X±t<sup>∗</sup><sub>n−1,1−α/2</sub>s/√n
 
 Example code: 
 ```r
+##X±t<sup>∗</sup><sub>n−1,1−α/2</sub>s/√n 
 estimates <- 
      penguins %>% 
      filter(species == "Chinstrap" & !is.na(body_mass_g)) %>% 
