@@ -614,6 +614,28 @@ Code for difference in stats Confidence interval based on CLT:
 - Write a computer script to perform hypothesis testing based on results from the assumption of normality or the Central Limit Theorem.
 - Discuss the potential limitations of these methods.
 
+Characteristics of a T-Distribution: (best for small samples without population SD)
+- Is always centered around 0
+- Has only one parameter to control spread (degrees of freedom)
+- Has heavier tails than a gaussian distribution (especially at lower df < 30) (allows us to account for additional uncertainty)
+- Converges to a normal distribution at higher df (> 50)
+
+
+A one-sample T-test uses mathamatical approximation to test the population mean, with null hypothesis showing the population mean is equal to a value N and alternative being its higher than, lower than, or not equal to N. 
+
+During testing, there are two cases to consider: 
+- The population has a normal distribution and the test statistic (T) will follow a T-distribution with n - 1 degrees of freedom
+- The population does not have a normal distribution, but test statistic will converge to a normal distributon due to CLT (given that n is large enough) for n - 1 df
+We can then use this known distribution to determine if our observed test statistic is likely under given conditions. 
+
+**For One Sample T_Test:**
+
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/one_sample_t-test.jpg)
+
+A one-sample Z-test helps us test the population proportion instead of population mean and uses sample proportion to calculate the test statistic.
+
+**For One Sample Z_Test:**
+![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/one_sample_z-test.jpg)
 
 A Two Sample T-Test (Two Tail) is for comparing 2 independent populations, otherwise, a t test is used for when the population paramaeters are unknown and the standard deviation is approximated by using a value from a sample:
 
@@ -623,6 +645,11 @@ If the population standard deviation is known and the sample size is greater tha
 **For a 2-Tailed T_Test:**
 
 ![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/Screen%20Shot%202022-08-04%20at%201.14.30%20PM.png)
+
+
+The paired t-test compares two population means like the two-sample t-test, but has dependent samples instead of independent. The paired t-test a difference measurement (d) to show the difference between dependent values of the samples. Then we perform one-sample t-test using d: 
+- if the distribution of d is normal, we should be fine for one-sample t-test even for small saple sizes. 
+- if the distribution of  d  is far from Normal, then a larger sample size is needed before the CLT "kicks in" and the one-sample t-test becomes appropriate. Usually, a sample of size 30 tends to be sufficient
 
 
 
