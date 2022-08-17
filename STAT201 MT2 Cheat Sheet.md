@@ -4,6 +4,8 @@
 
 ## Module 3: Bootstrapping and its Relationship to the Sampling Distribution
 
+
+
 ## Module 4: Confidence Intervals via Bootstrapping
 
 ***The Main Idea***
