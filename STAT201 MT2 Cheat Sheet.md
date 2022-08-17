@@ -691,7 +691,8 @@ The probability of rejecting H<sub>0</sub> when H<sub>0</sub> is true. This prob
 The probability of failing to reject H<sub>0</sub> when H<sub>0</sub> is false. This probability is the dependent on:
 - Effect size (difference between H<sub>0</sub> and reality) (probability of correctly rejecting H<sub>0</sub> increase as difference increases)
 - the sample size (increasing sample size reduces overlap between Null Model and Sampling Distribution if H<sub>0</sub> is false)
-- the probability of Type I error (changing α would change the borders of shaded regions in the Null Model and Sampling Distribution)
+- the probability of Type I error (changing α would change the borders of shaded regions in our Null Model and population distribution)
+  probability of Type II error is inversely proportional to α value (increase α to decrease likelihood)
 
 **Power of the test**
 The power of a test is the probability of rejecting H<sub>0</sub> when H<sub>0</sub> is false. It is 1 - P(Type II Error)
