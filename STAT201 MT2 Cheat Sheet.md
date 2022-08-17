@@ -702,7 +702,18 @@ be calculated using the sampling distribution SD (s) instead:
 X±t<sup>∗</sup><sub>n−1,1−α/2</sub>s/√n 
   where t<sup>*</sup> is the critical value with n-1 degrees of freedom for (1−α/2)-quantile (two-tailed)
 
+Example code: 
+```r
+estimates <- 
+     penguins %>% 
+     filter(species == "Chinstrap" & !is.na(body_mass_g)) %>% 
+     summarise(sample_average = mean(body_mass_g), ## xbar or X
+               sample_std_error = sd(body_mass_g)/sqrt(n())) ## s/√n 
 
+ mean_body_mass_chinstrap_ci <- tibble(
+     lower_ci = qnorm(0.005, estimates$sample_average, estimates$sample_std_error),
+     upper_ci = qnorm(0.995, estimates$sample_average, estimates$sample_std_error))
+```
 
 
 
