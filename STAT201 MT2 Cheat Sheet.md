@@ -703,9 +703,8 @@ be calculated using the sampling distribution SD (s) instead:
 X±t<sup>∗</sup><sub>n−1,1−α/2</sub>s/√n 
   where t<sup>*</sup> is the critical value with n-1 degrees of freedom for (1−α/2)-quantile (two-tailed)
 
-Example code: 
+Example code: (X±t<sup>∗</sup><sub>n−1,1−α/2</sub>s/√n )
 ```r
-##X±t<sup>∗</sup><sub>n−1,1−α/2</sub>s/√n 
 estimates <- 
      penguins %>% 
      filter(species == "Chinstrap" & !is.na(body_mass_g)) %>% 
