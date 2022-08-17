@@ -1,11 +1,8 @@
 # STAT201 MT2 Cheat Sheet
 
+## Module 2: Populations and Sampling
 
-## Module 1: 
-
-## Module 2: 
-
-## Module 3: 
+## Module 3: Bootstrapping and its Relationship to the Sampling Distribution
 
 ## Module 4: Confidence Intervals via Bootstrapping
 
