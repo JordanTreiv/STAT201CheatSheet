@@ -59,7 +59,7 @@ Then, we need to generate replicates and calculate our sample statistic:
 
 ```r
 bootstrap_dist <- original_sample %>%
-  specify(formula = RESPONSE ~ EDPLANATORY)%>%
+  specify(formula = RESPONSE ~ EXPLANATORY)%>%
   generate(reps = DESIRED_REPS) %>% 
   calculate(stat = "type_of_statstic")
 ```
