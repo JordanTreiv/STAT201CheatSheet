@@ -698,7 +698,7 @@ The power of a test is the probability of rejecting H<sub>0</sub> when H<sub>0</
 
 Confidence intervels can also be calculated X± z<sup>∗</sup><sub>1−α/2σ</sub>√n but the population SD is rarely known. Thus, the confidence intervas can also
 be calculated using the sampling distribution SD (s) instead:
-X±t<sup>∗</sup><sub>n−1,1−α/2<sub>s/√n 
+X±t<sup>∗</sup><sub>n−1,1−α/2</sub>s/√n 
   where t<sup>*</sup> is the critical value with n-1 degrees of freedom for (1−α/2)-quantile (two-tailed)
 
 
