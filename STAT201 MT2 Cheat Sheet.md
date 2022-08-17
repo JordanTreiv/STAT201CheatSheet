@@ -716,6 +716,18 @@ estimates <-
      upper_ci = qnorm(0.995, estimates$sample_average, estimates$sample_std_error))
 ```
 
+Example code: Calculating Error
+```r
+n <- 30 ##sample size
+val0.05 <- qnorm(0.05, population_mean=275, sd=(35/sqrt(n))) ##qnorm(alpha_level, population_mean, sample_sd = population_sd/sqrt(sample_size))
+reject <- (val0.05 - 260)/(35/sqrt(n)) ##normalize the value for null distribution (not necessary)
+m <- pnorm(reject, 0, 1) ##can also be pnorm(val0.05, 260,  35/sqrt(n))
 
+
+
+ pfizer_errors <- tibble(type_I_error = 0.05,
+                         type_II_error = 1 - m, 
+                         power_of_test = m)
+```
 
 
