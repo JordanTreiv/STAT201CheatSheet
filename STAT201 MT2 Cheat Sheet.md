@@ -2,25 +2,47 @@
 
 ## Module 2: Populations and Sampling
 
+***The Main Idea:***
+- Compare and contrast quantitative and categorical variables.
+
+- Explain random and representative sampling and how this can influence estimation.
+
+- Define random variables and explain how they relate to sampling.
+
+- Define standard error and explain its purpose.
+
+- Compare and contrast population distribution, sample distribution and an estimator's sampling distribution.
+
+- Explain what a sampling distribution is, list its properties, and its purpose in statistical inference.
+
+-------------------------------------------------------------
+
 ## Module 3: Bootstrapping and its Relationship to the Sampling Distribution
 
+***The Main Idea:***
 
+- Explain why we don’t know/have a sampling distribution in practice/real life.
+- Define bootstrapping.
+- Write a computer script to create a bootstrap distribution to approximate a sampling distribution.
+- Contrast a bootstrap sampling distribution with a sampling distribution obtained using multiple samples.
+
+-------------------------------------------------------------
 
 ## Module 4: Confidence Intervals via Bootstrapping
 
 ***The Main Idea***
 
--Define what a confidence interval is and why we want to generate one.
+- Define what a confidence interval is and why we want to generate one.
 
--Explain how the bootstrap sampling distribution can be used to create confidence intervals.
+- Explain how the bootstrap sampling distribution can be used to create confidence intervals.
 
--Write a computer script to calculate confidence intervals for a population parameter using bootstrapping.
+- Write a computer script to calculate confidence intervals for a population parameter using bootstrapping.
 
--Effectively visualize point estimates and confidence intervals.
+- Effectively visualize point estimates and confidence intervals.
 
--Interpret and explain results from confidence intervals.
+- Interpret and explain results from confidence intervals.
 
--Discuss the potential limitations of these methods.
+- Discuss the potential limitations of these methods.
 
 **There are two main workflows for acquiring a confidence interval using bootstrapping:**
 
@@ -93,7 +115,7 @@ Which will yield something like this:
 
 The other method for creating a confidence interval is using the 68-95-99.7 rule for normal distributions, but that one assumes normality so if you needed it, damn go read the textbook X_X.
 
-
+-------------------------------------------------------------
 
 ## Module 6: Hypothesis Testing
 ***The Basic Steps***
@@ -435,6 +457,7 @@ It should look like:
 
 ![alt text](https://github.com/JordanTreiv/STAT201CheatSheet/blob/main/bootstrap-distribution-two-prop-percentile-1.png)
 
+-------------------------------------------------------------
 
 ## Module 7: Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem
 
@@ -603,7 +626,7 @@ Code for difference in stats Confidence interval based on CLT:
      )
 ```
 
-
+-------------------------------------------------------------
 
 
 ## Module 8: Classical Tests Based on Normal and t-Distributions
